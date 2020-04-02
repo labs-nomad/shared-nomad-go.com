@@ -6,44 +6,46 @@
 //
 import SwiftUI
 
+/// The `GMMenu` that displays `GMItems` in a grid.
 public struct GMMenu {
     //MARK: Input Properties
-    @State public var menuItems: [GMItem] = []
     
-    @State public var collapsed: Bool = false
-    
-    @State public var collapsedMenuPosition: GMMenuCollapsedPosition = GMMenuCollapsedPosition.upperRight
+    @ObservedObject var gmMenuController: GMMenuController
     
     //MARK: Computed Properties
     
     //MARK: Init
-    init() {
-        
+    /// Initlaizer for `GMMenu` that takes a `GMMenuController`
+    /// - Parameter controller: The `GMMenuController` that will contain all the state information for the menu
+    public init(controller: GMMenuController) {
+        self.gmMenuController = controller
     }
     
     //MARK: Functions
+    
 }
 
 
 extension GMMenu: View {
-    var body: some View {
-        
-        Text("Item")
-//        switch collapsed {
-//        case true:
-//            break
-//        case false:
-//            break
-//        }
-//        switch self.collapsedMenuPosition {
-//        default:
-//            
-//        }
+    /// The body of the `GMMenu`
+    public var body: some View {
+        HStack(alignment: .center, spacing: 0) {
+            HStack {
+                ForEach(0..<self.gmMenuController.menuItems.count) { column in
+                    VStack {
+                        ForEach(0..<self.gmMenuController.menuItems[column].count) { row in
+                            GMItemView(controller: self.gmMenuController, item: self.gmMenuController.menuItems[column][row])
+                        }
+                    }
+                }
+            }.padding()
+        }.border(Color.black, width: 2).frame(minWidth: 100, minHeight: 75)
     }
 }
 
 struct GMMenu_Previews: PreviewProvider {
     static var previews: some View {
-        GMMenu()
+        let controller = GMMenuController()
+        return GMMenu(controller: controller)
     }
 }
