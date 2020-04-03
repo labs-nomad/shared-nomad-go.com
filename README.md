@@ -10,7 +10,7 @@ https://github.com/labs-nomad/shared-nomad-go.com.git
 
 ### Visual
 
-![selected](/Images/selected.jpeg) ![full](/Images/full.jpeg) ![collapsed](/Images/collapsed.jpeg)
+![selected](/Images/selected.jpeg=100x) ![full](/Images/full.jpeg) ![collapsed](/Images/collapsed.jpeg)
 
 ### Article
 
