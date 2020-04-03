@@ -1,6 +1,6 @@
 # GridMenu
 
-###Installation
+### Installation
 
 The URL of this Swift Package is
 
@@ -8,10 +8,15 @@ The URL of this Swift Package is
 https://github.com/labs-nomad/shared-nomad-go.com.git
 ```
 
-###Visual
+### Visual
 
+![selected](/Images/selected.jpeg) ![full](/Images/full.jpeg) ![collapsed](/Images/collapsed.jpeg)
 
-###Usage
+### Article
+
+I also wrote a medium article about making this menu. Here is the link
+
+### Usage
 
 Here is a really basic usage on a fresh xCode project using `SwiftUI`
 
@@ -29,14 +34,16 @@ struct ContentView: View {
             VStack {
                 HStack {
                     Spacer()
-                    GMCollapsedMenu(controller: self.gmMenuController).padding([.top, .trailing], 20).foregroundColor(Color.white)
+                    GMCollapsedMenu(controller: self.gmMenuController).padding([.top], 40).padding([.trailing], 20).foregroundColor(Color.white)
                 }
                 Spacer()
             }
             if self.gmMenuController.collapsed == false {
                 GMMenu(controller: self.gmMenuController).background(Color.white)
             }
-        }.background(Color.gray)
+        }
+        .background(Color.gray)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
