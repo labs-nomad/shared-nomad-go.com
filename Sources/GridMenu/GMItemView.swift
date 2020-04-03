@@ -42,7 +42,7 @@ extension GMItemView: View {
                 VStack {
                     Image(systemName: self.menuItem.sfSymbol).resizable().aspectRatio(contentMode: ContentMode.fit)
                     if self.menuItem.showItemDescription {
-                        Text(self.menuItem.itemDescription).minimumScaleFactor(0.01).frame(height: geo.size.height * 0.40)
+                        Text(self.menuItem.itemDescription).minimumScaleFactor(0.01).frame(height: geo.size.height * 0.40).multilineTextAlignment(.center)
                     }
                 }
             }
