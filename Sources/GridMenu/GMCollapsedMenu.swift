@@ -12,7 +12,6 @@ public struct GMCollapsedMenu {
     //MARK: Input Properties
     @ObservedObject var gmMenuController: GMMenuController
     
-    @State public var menuName: String = "Menu"
     //MARK: Computed Properties
     
     //MARK: Init
@@ -20,9 +19,8 @@ public struct GMCollapsedMenu {
     /// - Parameters:
     ///   - controller: The `GMMenuController` to initalize with
     ///   - menuName: The name to go under the  menu symbol
-    public init(controller: GMMenuController, menuName: String = "Menu") {
+    public init(controller: GMMenuController) {
         self.gmMenuController = controller
-        self.menuName = menuName
     }
     
     //MARK: Functions
@@ -42,7 +40,7 @@ extension GMCollapsedMenu: View {
                     VStack {
                         Image(systemName: "square.grid.3x2")
                             .imageScale(Image.Scale.large)
-                        Text(self.menuName)
+                        Text(self.gmMenuController.collapsedMenuName)
                             .font(Font.footnote)
                     }
                 }

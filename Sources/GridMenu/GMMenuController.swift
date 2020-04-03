@@ -14,6 +14,8 @@ public class GMMenuController: ObservableObject {
     /// Keeps track of the visible state of the menu.
     @Published public var collapsed: Bool = true
     
+    @Published public var collapsedMenuName: String = "Menu"
+    
     //MARK: Other properties
     
     
