@@ -29,7 +29,11 @@ public struct GMItemView {
     //MARK: Functions
     func itemTapped() {
         withAnimation {
-            self.gmMenuController.currentItem = self.menuItem
+            if self.gmMenuController.currentItem == nil {
+                self.gmMenuController.currentItem = self.menuItem
+            }else {
+                self.gmMenuController.currentItem = nil
+            }
         }
     }
 }
